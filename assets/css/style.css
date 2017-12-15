@@ -1,4 +1,11 @@
 
 
-body {background-color: lightgray;
+body {background-image: url("../images/curlingbg.jpg");
+}
+
+.footer {font-size: 10px;
+}
+
+.title {background-color: #2f82c4;
+
 }
