@@ -58,6 +58,8 @@ var Trivia = {
     		$(".question").append("<hr>");
   		};
 
+  		$(".question").append("<button type='button' class='btn btn-secondary btn-lg'>Done</button>");
+
 	},
 }
 
