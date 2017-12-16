@@ -41,7 +41,7 @@ var Trivia = {
 	// },
 
 
-	// <input type="radio" id="myRadio">
+	
 
 	addInfo: function() {
 		for (var i = 0; i < this.questionList.length; i++) {
@@ -65,5 +65,42 @@ var i = 0;
 var j = 0;
 
 
-Trivia.addInfo();
-// Trivia.addAnsInfo();
+//define function for click to start game and clock
+
+function startTimer(){
+   	$(".startClock").empty();
+   	$(".startbox").empty();
+  	var counter = 31;
+  	setInterval(function() {
+    counter--;
+    if (counter >= 0) {
+      $(".timereport").text("Time remaining: " + counter + " seconds");
+    }
+    if (counter === 0) {
+        alert('Sorry, out of time.');
+        clearInterval(counter);
+    }
+    console.log ("time is: " + counter);
+  }, 1000);
+}
+
+//=================================================
+
+$(".startClock").text("Click to Start");
+
+$(".startbox").click(function(){
+
+    startTimer();
+    Trivia.addInfo();
+});
+
+
+
+
+
+//Listen for click on a single radio button,compare click to correct answer and log
+
+
+
+
+

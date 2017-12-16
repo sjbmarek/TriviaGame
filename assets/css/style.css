@@ -9,3 +9,14 @@ body {background-image: url("../images/curlingbg.jpg");
 .title {background-color: #2f82c4;
 
 }
+
+.startClock {
+	/*margin-bottom: 20p*;*/
+	height: 600px;
+	/*width: 100%;*/
+	/*background-color: lightgray;*/
+	padding-top: 75px;
+	font-size: 30px;
+	margin: 0 auto;
+
+}
