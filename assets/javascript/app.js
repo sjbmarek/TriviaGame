@@ -84,9 +84,30 @@ function startTimer(){
   }, 1000);
 }
 
+
+
+// imageCrystal = $("<img>");
+//     		imageCrystal.addClass("crystalsize");
+//     		imageCrystal.attr("src", this.gempic[i]);
+//     		imageCrystal.attr("data-crystalvalue", this.value[i]);
+//     		$(".crystals").append(imageCrystal);
+//   		};
+
+
+
+
+
+
+
+
+
 //=================================================
 
 $(".startClock").text("Click to Start");
+// $(".startClock").append();
+
+// add pointer image here
+
 
 $(".startbox").click(function(){
 
@@ -104,3 +125,4 @@ $(".startbox").click(function(){
 
 
 
+//Need a DONE button at the bottom
