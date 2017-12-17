@@ -10,7 +10,7 @@ var Trivia = {
 	"The entire scoring area on the ice is called the:",
 	"The curling ice surface is:",
 	"Which curling club is not in Twin Cities?",
-	"The player calling the shots from the house is the:",
+	"The player calling the shots is the:",
 	"Which is not a curling shot call?",
 	"Which player was the vice-skip on the 2014 USA Olympic Team?"
 	],
@@ -50,7 +50,7 @@ var Trivia = {
 
 			//adds the answer list with indexed questions(name) and question(value)
 
-				("<input type='radio' id='radio' name='qnum" + i +"' value='"+j+"'>"
+				("<input type='radio' id='radio" + i +"' name='qnum" + i +"' value='"+j+"'>"
 
 				 + "&nbsp" + this.ansList[i].list[j] + "&nbsp&nbsp&nbsp&nbsp");
 			};
@@ -59,17 +59,19 @@ var Trivia = {
     		$(".question").append("<hr>");
   		};
 
-  		$(".question").append("<button type='button' class='btn btn-secondary btn-lg'>Done</button>");
+  		$(".question").append("<button type='button' class='btn finish btn-secondary btn-lg'>Done</button>");
 
 	},
 }
 
 var i = 0;
 var j = 0;
-
+var correct = 0;
+var incorrect = 0;
+var unanswered = 0;
+var done = false;
 
 //define function for click to start game and clock
-
 function startTimer(){
    	$(".startClock").empty();
    	$(".startbox").empty();
@@ -79,37 +81,50 @@ function startTimer(){
     if (counter >= 0) {
       $(".timereport").text("Time remaining: " + counter + " seconds");
     }
-    if (counter === 0) {
+    if (counter === 0 && !done) {
         alert('Sorry, out of time.');
+        $(".timereport").empty();
+        clearInterval(this);
+        done=true;
+    }
+    if (done){
+    	 $(".timereport").empty();
         clearInterval(this);
     }
     // console.log ("time is: " + counter);
   }, 1000);
 }
 
+function report(){
+	$(".timereport").empty();
+	$(".question").empty();
+	$(".startbox").empty();
+	$(".startClock").empty();
+	$(".results").append("<br><br><br><br><strong>RESULTS</strong><br><br>");
+	$(".results").append("Correct Answers: " + correct +"<br>");
+	$(".results").append("Incorrect Answers: " + incorrect+"<br>");
+	$(".results").append("Unanswered: " + unanswered+"<br>");
+	$(".results").append("<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>");
+}
 
 
-// imageCrystal = $("<img>");
-//     		imageCrystal.addClass("crystalsize");
-//     		imageCrystal.attr("src", this.gempic[i]);
-//     		imageCrystal.attr("data-crystalvalue", this.value[i]);
-//     		$(".crystals").append(imageCrystal);
-//   		};
+// var radioValue = $("input[name='gender']:checked").val();
+// function getRadioVal(){
+// 	for (var j=0; j=Trivia.ansList.length,j++){
+// 		if ()
 
-
-
-
-
-
-
+// 	}
+// }
 
 
 //=================================================
+
+
+
 //sets up the question div
 $(".startClock").text("Click to Start");
 // add curl rock image in this area
 $(".startbox").click(function(){
-
     startTimer();
     Trivia.addInfo();
 });
@@ -117,11 +132,41 @@ $(".startbox").click(function(){
 //=================================================
 
 
-
-
 //Listen for click on a single radio button,compare click to correct answer and log
 
+// listen for done click
+$(".question").on("click", ".finish",(function(){
+	done=true;
+	console.log("done: " + done)
 
+// if time expires or submit button is clicked, do all of this
 
+// if (counter===0 || done){
+	if (done){
 
+		for (var i = 0; i < Trivia.questionList.length; i++){
 
+				var selectedAnswer = $("input[name='qnum" + i + "']:checked").val();
+				
+					selectedAnswer=parseInt(selectedAnswer);
+					console.log("selected: " + selectedAnswer);
+					console.log("real answer: " + Trivia.answers[i]);
+						if (selectAnswer=Trivia.answers[i]){
+							correct++;
+							console.log("correct: " + correct);
+						
+						} else if (selectedAnswer="Nan"){
+							unanswered++;
+							console.log("not answered: " + unanswered);
+						} else {
+							incorrect++;
+							console.log("wrong: " + incorrect);
+						};
+				
+		
+		}; //done with question for loop'radio" + i +"'
+
+		report();
+	};
+
+}));
