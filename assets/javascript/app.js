@@ -32,26 +32,27 @@ var Trivia = {
 
 
 
-//define function that adds questions and answer list to the div
-	// addAnsInfo: function(){
-	// 	for (var j = 0; j < 6; j++) {
-	// 		$(".question").append("<input type='radio' id='radio'>" + "&nbsp" + this.ansList[i].list[j] + "&nbsp&nbsp&nbsp&nbsp");
-	// 	};
 
-	// },
-
-
+//define function that adds questions,answer list and button to the div
 	
 
 	addInfo: function() {
+		//this looop adds the questions
 		for (var i = 0; i < this.questionList.length; i++) {
     		$(".question").append(this.questionList[i] + "<br>");
-    		// Trivia.addAnsInfo();
-    		// $(".question").append(this.ansList[i]);
+    		
     		ansLength=this.ansList[i].list.length;
     		console.log("answer length is " + ansLength);
+
+    		//this loop adds the answers for each question
     		for (var j = 0; j < ansLength; j++) {
-				$(".question").append("<input type='radio' id='radio'>" + "&nbsp" + this.ansList[i].list[j] + "&nbsp&nbsp&nbsp&nbsp");
+				$(".question").append
+
+			//adds the answer list with indexed questions(name) and question(value)
+
+				("<input type='radio' id='radio' name='qnum" + i +"' value='"+j+"'>"
+
+				 + "&nbsp" + this.ansList[i].list[j] + "&nbsp&nbsp&nbsp&nbsp");
 			};
 
 	
@@ -73,16 +74,16 @@ function startTimer(){
    	$(".startClock").empty();
    	$(".startbox").empty();
   	var counter = 31;
-  	setInterval(function() {
+  	var internal = setInterval(function() {
     counter--;
     if (counter >= 0) {
       $(".timereport").text("Time remaining: " + counter + " seconds");
     }
     if (counter === 0) {
         alert('Sorry, out of time.');
-        clearInterval(counter);
+        clearInterval(this);
     }
-    console.log ("time is: " + counter);
+    // console.log ("time is: " + counter);
   }, 1000);
 }
 
@@ -104,19 +105,16 @@ function startTimer(){
 
 
 //=================================================
-
+//sets up the question div
 $(".startClock").text("Click to Start");
-// $(".startClock").append();
-
-// add pointer image here
-
-
+// add curl rock image in this area
 $(".startbox").click(function(){
 
     startTimer();
     Trivia.addInfo();
 });
 
+//=================================================
 
 
 
@@ -127,4 +125,3 @@ $(".startbox").click(function(){
 
 
 
-//Need a DONE button at the bottom
