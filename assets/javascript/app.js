@@ -30,12 +30,7 @@ var Trivia = {
 
 	answers:[3,2,2,2,1,4,1,4,0],
 
-
-
-
 //define function that adds questions,answer list and button to the div
-	
-
 	addInfo: function() {
 		//this looop adds the questions
 		for (var i = 0; i < this.questionList.length; i++) {
@@ -86,6 +81,7 @@ function startTimer(){
         $(".timereport").empty();
         clearInterval(this);
         done=true;
+        finish();
     }
     if (done){
     	 $(".timereport").empty();
@@ -104,22 +100,47 @@ function report(){
 	$(".results").append("Correct Answers: " + correct +"<br>");
 	$(".results").append("Incorrect Answers: " + incorrect+"<br>");
 	$(".results").append("Unanswered: " + unanswered+"<br>");
-	$(".results").append("<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>");
+	if (correct===9){
+		$(".results").append("<br><strong>YAY! You are a curling expert.</strong>");
+	};
+	if (incorrect>4 || unanswered>4){
+		$(".results").append("<br><strong>Study up on the sport of curling.</strong>");
+	};
+	$(".results").append("<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>");
 }
 
 
-// var radioValue = $("input[name='gender']:checked").val();
-// function getRadioVal(){
-// 	for (var j=0; j=Trivia.ansList.length,j++){
-// 		if ()
+function finish(){
+		if (done){
 
-// 	}
-// }
+		for (var i = 0; i < Trivia.questionList.length; i++){
+				// capture the value of the clicked radio button
+				var selectedAnswer = $("input[name='qnum" + i + "']:checked").val();
+				selectedAnswer=parseInt(selectedAnswer);
+					console.log("selected: " + selectedAnswer);
+					console.log("real answer: " + Trivia.answers[i]);
+					// sorts the answers into result catagories
+					if (selectedAnswer>=0){
+						if (selectedAnswer===Trivia.answers[i]){
+							correct++;
+							console.log("correct: " + correct);		
+						} else {
+							incorrect++;
+							console.log("wrong: " + incorrect);
+						};
+					} else {
+							unanswered++;
+							console.log("not answered: " + unanswered);
+					};	
+		}; //done with question for loop'radio" + i +"'
+
+		report();
+	};
+
+}
 
 
 //=================================================
-
-
 
 //sets up the question div
 $(".startClock").text("Click to Start");
@@ -139,34 +160,38 @@ $(".question").on("click", ".finish",(function(){
 	done=true;
 	console.log("done: " + done)
 
+
+	finish();
 // if time expires or submit button is clicked, do all of this
 
 // if (counter===0 || done){
-	if (done){
+	
 
-		for (var i = 0; i < Trivia.questionList.length; i++){
 
-				var selectedAnswer = $("input[name='qnum" + i + "']:checked").val();
-				
-					selectedAnswer=parseInt(selectedAnswer);
-					console.log("selected: " + selectedAnswer);
-					console.log("real answer: " + Trivia.answers[i]);
-						if (selectAnswer=Trivia.answers[i]){
-							correct++;
-							console.log("correct: " + correct);
-						
-						} else if (selectedAnswer="Nan"){
-							unanswered++;
-							console.log("not answered: " + unanswered);
-						} else {
-							incorrect++;
-							console.log("wrong: " + incorrect);
-						};
-				
-		
-		}; //done with question for loop'radio" + i +"'
+	// if (done){
 
-		report();
-	};
+	// 	for (var i = 0; i < Trivia.questionList.length; i++){
+	// 			// capture the value of the clicked radio button
+	// 			var selectedAnswer = $("input[name='qnum" + i + "']:checked").val();
+	// 			selectedAnswer=parseInt(selectedAnswer);
+	// 				console.log("selected: " + selectedAnswer);
+	// 				console.log("real answer: " + Trivia.answers[i]);
+	// 				// sorts the answers into result catagories
+	// 				if (selectedAnswer>=0){
+	// 					if (selectedAnswer===Trivia.answers[i]){
+	// 						correct++;
+	// 						console.log("correct: " + correct);		
+	// 					} else {
+	// 						incorrect++;
+	// 						console.log("wrong: " + incorrect);
+	// 					};
+	// 				} else {
+	// 						unanswered++;
+	// 						console.log("not answered: " + unanswered);
+	// 				};	
+	// 	}; //done with question for loop'radio" + i +"'
+
+	// 	report();
+	// };
 
 }));
