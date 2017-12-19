@@ -24,7 +24,7 @@ var Trivia = {
 	 	{"list": ["Smooth",  "Pebbled", "Wet", "Wavy", "Frosted"]},
 	 	{"list": ["Dakota",  "Chaska",  "Frogtown", "Four Seasons",  "Wauwatosa"]},
 	 	{"list": ["Captain", "Skip", "Hop", "Jump", "Coach"]},
-	 	{"list": ["Draw", "Raise", "Tick", "Knockout", "Flyer"]},
+	 	{"list": ["Draw", "Raise", "Tick", "Takeout", "Flyer"]},
 	 	{"list": ["Isaacson", "Shuster", "Polo", "Landsteiner", "Zezel"]}
 	],
 
@@ -160,38 +160,6 @@ $(".question").on("click", ".finish",(function(){
 	done=true;
 	console.log("done: " + done)
 
-
 	finish();
-// if time expires or submit button is clicked, do all of this
-
-// if (counter===0 || done){
-	
-
-
-	// if (done){
-
-	// 	for (var i = 0; i < Trivia.questionList.length; i++){
-	// 			// capture the value of the clicked radio button
-	// 			var selectedAnswer = $("input[name='qnum" + i + "']:checked").val();
-	// 			selectedAnswer=parseInt(selectedAnswer);
-	// 				console.log("selected: " + selectedAnswer);
-	// 				console.log("real answer: " + Trivia.answers[i]);
-	// 				// sorts the answers into result catagories
-	// 				if (selectedAnswer>=0){
-	// 					if (selectedAnswer===Trivia.answers[i]){
-	// 						correct++;
-	// 						console.log("correct: " + correct);		
-	// 					} else {
-	// 						incorrect++;
-	// 						console.log("wrong: " + incorrect);
-	// 					};
-	// 				} else {
-	// 						unanswered++;
-	// 						console.log("not answered: " + unanswered);
-	// 				};	
-	// 	}; //done with question for loop'radio" + i +"'
-
-	// 	report();
-	// };
 
 }));
