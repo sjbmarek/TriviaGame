@@ -59,6 +59,8 @@ var Trivia = {
 	},
 }
 
+// end of object
+
 var i = 0;
 var j = 0;
 var correct = 0;
@@ -91,6 +93,8 @@ function startTimer(){
   }, 1000);
 }
 
+// function to report results
+
 function report(){
 	$(".timereport").empty();
 	$(".question").empty();
@@ -108,7 +112,8 @@ function report(){
 	};
 	$(".results").append("<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>");
 }
-
+// the above list of <br> is to push the div bigger, need css here to help out and get the footer to the bottom of the viewport
+// when done by done button or time expires, do this
 
 function finish(){
 		if (done){
@@ -142,6 +147,8 @@ function finish(){
 
 //=================================================
 
+// this is the execution part
+
 //sets up the question div
 $(".startClock").text("Click to Start");
 // add curl rock image in this area
@@ -150,11 +157,8 @@ $(".startbox").click(function(){
     Trivia.addInfo();
 });
 
-//=================================================
 
-
-//Listen for click on a single radio button,compare click to correct answer and log
-
+// listen for click on a single radio button,compare click to correct answer and log
 // listen for done click
 $(".question").on("click", ".finish",(function(){
 	done=true;
