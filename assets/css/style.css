@@ -1,10 +1,10 @@
 
 
-body {background-image: url("../images/curlingbg.jpg");
+body {
+	background:  url("../images/curlingbg.jpg") no-repeat scroll 0% 0%;
+	margin-bottom: 64px;
 }
 
-.footer {font-size: 10px;
-}
 
 .title {background-color: #2f82c4;
 
@@ -13,8 +13,6 @@ body {background-image: url("../images/curlingbg.jpg");
 .startClock {
 	color: black;
 	width: 100%;
-
-
 	height: 600px;
 	padding-top: 75px;
 	font-size: 30px;
@@ -26,3 +24,35 @@ body {background-image: url("../images/curlingbg.jpg");
 	font-size: 26px;
 
 }
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 64px;
+    line-height: 60px;
+    background-color: #303030;
+}
+
+.footercontainer {
+    width: auto;
+    max-width: 680px;
+    padding: 0 15px;
+}
+
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+.footertext {
+    color: white;
+    font-size: 10px;
+}
+
+.shadow {
+	box-shadow: 6px 3px 20px 0px rgba(116,116,116,0.73);
+}
+
+

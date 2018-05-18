@@ -32,7 +32,7 @@ var Trivia = {
 
 //define function that adds questions,answer list and button to the div
 	addInfo: function() {
-		//this looop adds the questions
+		//this loop adds the questions
 		for (var i = 0; i < this.questionList.length; i++) {
     		$(".question").append(this.questionList[i] + "<br>");
     		
@@ -54,7 +54,7 @@ var Trivia = {
     		$(".question").append("<hr>");
   		};
 
-  		$(".question").append("<button type='button' class='btn finish btn-secondary btn-lg'>Done</button>");
+  		$(".question").append("<button type='button' class='btn finish btn-primary btn-lg'>Done</button>");
 
 	},
 }
@@ -105,12 +105,16 @@ function report(){
 	$(".results").append("Incorrect Answers: " + incorrect+"<br>");
 	$(".results").append("Unanswered: " + unanswered+"<br>");
 	if (correct===9){
-		$(".results").append("<br><strong>YAY! You are a curling expert.</strong>");
+		$(".results").append("<br><strong>YAY! You are a curling expert.</strong><br><br>");
+		$(".results").append("Try curling at the<br>");
+		$(".results").append("<a href='http://www.chaskacurlingcenter.com' target='_blank'>Chaska Curling Center</a>");
 	};
 	if (incorrect>4 || unanswered>4){
-		$(".results").append("<br><strong>Study up on the sport of curling.</strong>");
+		$(".results").append("<br><strong>Study up on the sport of curling.</strong><br><br>");
+		$(".results").append("Try curling at the<br>");
+		$(".results").append("<a href='http://www.chaskacurlingcenter.com' target='_blank'>Chaska Curling Center</a>");
 	};
-	$(".results").append("<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>");
+	$(".results").append("<br><br><br><br><br><br><br><br><br><br><br>");
 }
 // the above list of <br> is to push the div bigger, need css here to help out and get the footer to the bottom of the viewport
 // when done by done button or time expires, do this
