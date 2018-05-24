@@ -1,6 +1,6 @@
 # Trivia Game
 
-This Trivia game uses JavaScript for the logic and jQuery to manipulate HTML, CSS and Bootstrap for styling.
+This Trivia game uses JavaScript for the logic and jQuery to manipulate HTML, CSS and Bootstrap for styling.  Moment.js to handle timing.
 
 
 
